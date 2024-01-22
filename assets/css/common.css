@@ -1,0 +1,30 @@
+/* root */
+:root{
+  --color-light-beige: #fef7e5;
+  --color-regular-beige: #faf0d7;
+  --color-deep-beige: #f0e6cd;
+  --color-deep-blue: #2e3b80;
+  --color-dark-blue: #050d2c;
+  --color-deepdark-blue: #060c23;
+}
+
+/* font */
+@font-face {
+  font-family: enenya;
+  src: url('../fonts/EBENYA.woff') format(woff);
+  font-weight: normal;
+}
+body{
+  font-size: 1.1vw;
+  font-family: 'Roboto', sans-serif;
+}
+
+/* blind */
+.blind{
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+}
