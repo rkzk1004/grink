@@ -174,7 +174,6 @@ floatBtn.click(function(e){
   },1000)
 })
 floatBtn.mouseover(function(){
-  console.log();
   gsap.to('.float-box',0.3,{
     width:$(this).outerWidth()+10+'px',
     left:$(this).position().left-5,
