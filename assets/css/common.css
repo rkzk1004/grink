@@ -28,3 +28,13 @@ body{
   overflow: hidden;
   clip: rect(0,0,0,0);
 }
+
+/* canvas */
+.no-canvas{display: none;}
+@media(max-width:767px){
+  .no-canvas{
+    display: block;
+    width: 200px !important;
+  }
+  canvas{display: none;}
+}

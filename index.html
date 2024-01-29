@@ -27,40 +27,14 @@
 
 </head>
 <body>
-  <style>
-    .group-img{
-      display: flex;
-      align-items: center;justify-content: center;
-    }
-    .group-img .wrap{
-      position: relative;
-    }
-    .last{
-      position: absolute;
-      top: 0;bottom: 0;
-      width: 100%;
-      filter: invert(1);
-      animation: gaz 2s
-     
-    }
-    @keyframes gaz {
-      0%{
-        clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0% 100%);
-      }
-      100%{
-        clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
-      }
-      
-    }
-  </style>
-  <!-- <section class="sc-intro-motion">
+  <section class="sc-intro-motion">
     <div class="group-img">
-        <div class="wrap">
-          <img src="./assets/images/intro-motion-text.svg" alt>
+        <div class="img-area">
+          <img src="./assets/images/intro-motion-text.svg" alt class="first">
           <img src="./assets/images/intro-motion-text.svg" alt class="last">
         </div>
     </div>
-  </section> -->
+  </section>
 
   <picture class="body-bg">
     <img src="./assets/images/body-bg.svg" alt>
@@ -100,18 +74,13 @@
       </div>
     </section>
 
-    <style>
-      canvas{
-        aspect-ratio: auto 312 / 936;
-      }
-    </style>
     <div class="index-container">
       <h2 class="blind">orange drink</h2>
       <section class="sc-ad" id="ad">
         <div class="group-sticky">
           <div class="sticky-wrap">
-            <!-- <img src="/assets/images/orange-drink.png" alt> -->
-            <canvas id="video-canvas-2" width="312" height="936"></canvas>
+            <img src="/assets/images/orange-drink.png" alt class="no-canvas">
+            <canvas id="video-canvas-1" width="312" height="936"></canvas>
           </div>
         </div>
 
@@ -222,7 +191,8 @@
 
           <div class="sticky-area">
             <div class="sticky-wrap">
-              <img src="./assets/images/pink-drink.png" alt>
+              <img src="./assets/images/pink-drink.png" alt class="no-canvas">
+              <canvas id="video-canvas-2" width="312" height="936"></canvas>
             </div>
             
             <span class="bubble-css second"></span>
@@ -355,7 +325,7 @@
   </footer>
 
   <div class="float-area">
-    <a href="#intro" class="active">Main</a>
+    <a href="#intro" class="on">Main</a>
     <a href="#ad">Orange</a>
     <a href="#bubble">Bubble gum</a>
     <a href="#drink">Grink tastee</a>

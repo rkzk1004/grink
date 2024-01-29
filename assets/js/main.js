@@ -6,6 +6,14 @@ gsap.ticker.add((time)=>{
 })
 gsap.ticker.lagSmoothing(0)
 
+// intro-motion
+const introMotionTl = gsap.timeline({})
+introMotionTl
+.to('.sc-intro-motion .last',{clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0% 100%)',duration:10})
+.to('.sc-intro-motion .img-area',{width:0,duration:5,ease:'circ.out'})
+.to('.sc-intro-motion',{clipPath: 'polygon(0 0, 100% 0%, 100% 87%, 0 62%)'})
+.to('.sc-intro-motion',{clipPath: 'polygon(0 0, 100% 0%, 100% 0, 0 0)',duration:10})
+
 // body-bg
 const bodyBgMotion = gsap.timeline({
   scrollTrigger:{
@@ -73,6 +81,90 @@ const adTl3 = gsap.timeline({
 })
 adTl3.to('.sc-bubble .group-bubble',{yPercent:-50})
 
+// canvas1
+const images1 = [];
+const card1 = {frame: 0};
+const frameCount1 = 30;
+
+const canvas1 = document.querySelector('#video-canvas-1');
+const ctx1 = canvas1.getContext('2d');
+
+canvas1.width = 312;
+canvas1.height = 936;
+
+const currentFrame1 = (idx) => {
+  return `./assets/images/orange/${idx}.png`;
+};
+
+for (let i = 0; i < frameCount1; i++) {
+  const img1 = new Image();
+  img1.src = currentFrame1(i + 1);
+  images1.push(img1);
+}
+
+gsap.to(card1, {
+  frame: frameCount1 - 1,
+  snap: 'frame',
+  ease: 'none',
+  scrollTrigger: {
+    trigger: '.sc-ad .group-sticky',
+    scrub: 1,
+    start: '0% 0%',
+    end: '100% 100%',
+    // markers: true
+  },
+  onUpdate: render1,
+});
+
+images1[0].onload = render1;
+
+function render1() {
+  ctx1.clearRect(0, 0, canvas1.width, canvas1.height);
+  ctx1.drawImage(images1[card1.frame], 0, 0, 312 ,936);
+}
+
+// canvas2
+const images2 = [];
+const card2 = {frame: 0};
+const frameCount2 = 30;
+
+const canvas2 = document.querySelector('#video-canvas-2');
+const ctx2 = canvas2.getContext('2d');
+
+canvas2.width = 312;
+canvas2.height = 936;
+
+const currentFrame2 = (idx) => {
+  return `./assets/images/bubble/${idx}.png`;
+};
+
+for (let i = 0; i < frameCount2; i++) {
+  const img2 = new Image();
+  img2.src = currentFrame2(i + 1);
+  images2.push(img2);
+}
+
+gsap.to(card2, {
+  frame: frameCount2 - 1,
+  snap: 'frame',
+  ease: 'none',
+  scrollTrigger: {
+    trigger: '.sc-bubble .sticky-area',
+    scrub: 1,
+    start: '0% 0%',
+    end: '100% 100%',
+    // markers: true
+  },
+  onUpdate: render2,
+});
+
+images2[0].onload = render2;
+
+function render2() {
+  ctx2.clearRect(0, 0, canvas2.width, canvas2.height);
+  ctx2.drawImage(images2[card2.frame], 0, 0, 312 ,936);
+}
+
 // float-area
 const floatBtn = $('.float-area a')
 floatBtn.click(function(e){
@@ -87,73 +179,8 @@ floatBtn.mouseover(function(){
     width:$(this).outerWidth()+10+'px',
     left:$(this).position().left-5,
   })
-  // $('.float-box').css({
-  //   width:$(this).outerWidth()+'10px',
-  //   // left:$('.float-area a').left()+'px'
-  // })
 })
 
-
-
-
-
-/*
-
-https://www.matilda-design.ru/grink/orange-low/1.png
-
-https://www.matilda-design.ru/grink/bubble-low/1.png
-*/
-
-
-
-const canvas = document.querySelector('#video-canvas-2');
-const ctx = canvas.getContext('2d');
-
-canvas.width = 312;
-canvas.height = 936;
-
-const frameCount = 31;
-
-const currentFrame = (idx) => {
-  // return `asset/images/capture/capture${idx.toString()}.jpg`;
-  // console.log(`https://www.matilda-design.ru/grink/orange-low/${idx}.png`);
-
-  // return `https://www.apple.com/105/media/us/airpods-max/2020/996b980b-3131-44f1-af6c-fe72f9b3bfb5/anim/turn/large/large_${idx.toString().padStart(4, '0')}.jpg`;
-  return `./assets/images/orange/${idx}.png`;
-}; // 리턴 필수
-
-const images = [];
-const card = {
-  frame: 0,
-};
-
-for (let i = 0; i < frameCount; i++) {
-  const img = new Image();
-  img.src = currentFrame(i + 1);
-  images.push(img);
-}
-
-gsap.to(card, {
-  frame: frameCount - 1,
-  snap: 'frame',
-  ease: 'none',
-  scrollTrigger: {
-    trigger: '.sc-ad .group-sticky',
-    scrub: 1,
-    start: '0% 0%',
-    end: '100% 100%',
-    // pin: true,
-    // markers: true
-  },
-  onUpdate: render,
-  // duration: 4,
-});
-
-images[0].onload = render;
-
-function render() {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-  ctx.drawImage(images[card.frame], 0, 0, 312 ,936);
-}
-
-
+$('.float-area a').mouseover(function(){
+  $(this).addClass('on').siblings().removeClass('on')
+})

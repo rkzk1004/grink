@@ -7,3 +7,19 @@ button {background:none;border:0;cursor:pointer;}
 a {text-decoration:none}
 table {border-collapse:collapse;border-spacing:0}
 ul{list-style: none;}
+
+canvas{aspect-ratio: auto 312 / 936;}
+
+body{
+  font-family: 'Roboto', sans-serif;
+  overflow-x: hidden;
+  background: var(--color-light-beige);
+}
+.wrapper{
+  max-width: 100%;
+}
+.index-container{
+  position: relative;
+  margin-top: -80em;
+  z-index: 1;
+}
