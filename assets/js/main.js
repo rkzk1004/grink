@@ -9,10 +9,10 @@ gsap.ticker.lagSmoothing(0)
 // intro-motion
 const introMotionTl = gsap.timeline({})
 introMotionTl
-.to('.sc-intro-motion .last',{clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0% 100%)',duration:10})
-.to('.sc-intro-motion .img-area',{width:0,duration:5,ease:'circ.out'})
+.to('.sc-intro-motion .last',{clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0% 100%)',duration:2})
+.to('.sc-intro-motion .img-area',{width:0,duration:2,ease:'circ.out'})
 .to('.sc-intro-motion',{clipPath: 'polygon(0 0, 100% 0%, 100% 87%, 0 62%)'})
-.to('.sc-intro-motion',{clipPath: 'polygon(0 0, 100% 0%, 100% 0, 0 0)',duration:10})
+.to('.sc-intro-motion',{clipPath: 'polygon(0 0, 100% 0%, 100% 0, 0 0)',duration:2})
 
 // body-bg
 const bodyBgMotion = gsap.timeline({
