@@ -126,7 +126,7 @@
 }
 .sc-ad .sticky-wrap{
   position: sticky;
-  top: 2em;
+  top: 2rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -311,8 +311,11 @@
   margin-top: 1em;
   line-height: 1;
 }
-@media(max-width:767){
-
+@media(max-width:766px){
+  .sc-ad .sticky-wrap{
+    position: sticky;
+    top: 10rem;
+  }
 }
 
 /* sc-bubble */
@@ -388,7 +391,7 @@
 }
 .sc-bubble .sticky-wrap{
   position: sticky;
-  top: 1em;
+  top: 1rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -547,6 +550,11 @@
 .sc-bubble .group-bubble .bottom-area img:nth-child(2){
   margin-top: 5em;
   margin-left: 30em;
+}
+@media(max-width:767px){
+  .sc-bubble .sticky-wrap{
+    top: 10rem;
+  }  
 }
 
 /* sc-drink */
